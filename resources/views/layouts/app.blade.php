@@ -8,6 +8,7 @@
         <a href="/">Home</a>
         <a href="/hello">Hello</a>
         <a href="/about">About</a>
+        <a href="/posts">Post</a>
     </nav>
 
     <div class="content">
