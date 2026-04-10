@@ -17,3 +17,4 @@ Route::get('hello', [PageController::class, 'hello']);
 Route::get('about', [PageController::class, 'about']);
 
 Route::get('/posts', [PageController::class, 'posts']);
+Route::get('posts/{id}', [PageController::class, 'show']);

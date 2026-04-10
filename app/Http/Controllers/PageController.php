@@ -22,4 +22,9 @@ class PageController extends Controller
         $posts = Post::all();
         return view('posts', ['posts' => $posts]);
     }
+
+    public function show($id){
+        $post = Post::findORFail($id);
+        return view('post', ['post' => $post]);
+    }
 }
