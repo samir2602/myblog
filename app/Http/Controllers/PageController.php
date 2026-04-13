@@ -27,4 +27,24 @@ class PageController extends Controller
         $post = Post::findORFail($id);
         return view('post', ['post' => $post]);
     }
+
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request){
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+
+        $post = new Post();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect('/posts');
+    }
 }
