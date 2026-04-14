@@ -20,3 +20,6 @@ Route::get('/posts', [PageController::class, 'posts']);
 Route::get('/posts/create', [PageController::class, 'create']);
 Route::get('posts/{id}', [PageController::class, 'show']);
 Route::post('/posts', [PageController::class, 'store']);
+Route::get('/posts/{id}/edit', [PageController::class, 'edit']);
+Route::put('/posts/{id}', [PageController::class, 'update']);
+Route::delete('/posts/{id}', [PageController::class, 'destroy']);

@@ -47,4 +47,30 @@ class PageController extends Controller
 
         return redirect('/posts');
     }
+
+    public function edit($id)
+    {
+        $post = Post::findorFail($id);
+        return view('edit', ['post' => $post]);
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
+
+        $post = Post::findorFail($id);
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect('/posts/'.$id);
+    }
+
+    public function destroy($id){
+        $post = Post::findorFail($id);
+        $post->delete();
+        return redirect('/posts');
+    }
 }
